@@ -40,16 +40,4 @@ public class User {
 
     @ApiModelProperty(notes = "사용자 이메일을 입력해주세요")
     private String email;
-
-//    //1대 다 속성 주기
-//    @OneToMany(mappedBy = "user")
-//    private List<Post> posts;
-//
-//    public User(int i, String name, String phone_number, String address, String email) {
-//        this.id = id;
-//        this.name = name;
-//        this.phone_number = phone_number;
-//        this.address = address;
-//        this.email = email;
-//    }
 }

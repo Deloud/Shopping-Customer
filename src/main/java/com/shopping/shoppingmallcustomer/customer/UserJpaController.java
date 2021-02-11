@@ -16,42 +16,40 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/jpa")
+//@RequestMapping("/users")
+@RequestMapping("")
 public class UserJpaController {
 
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private PostRepository postRepository;
-
-    @GetMapping("/users")
+    //전체 고객 정보 받기
+    @GetMapping("")
     public List<User> retrieveAllUsers(){
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
-    public Resource<User> retrieveUser(@PathVariable int id){
+    //번호로 고객 정보 받아오기
+    @GetMapping("/{id}")
+    public Optional<User> retrieveUser(@PathVariable int id){
         Optional<User> user = userRepository.findById(id);
 
         if (!user.isPresent()){
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
 
-        Resource<User> resource = new Resource<>(user.get());
-        ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
-        resource.add(linkTo.withRel("all-users"));
-
-        return resource;
+        return user;
     }
 
-    @DeleteMapping("/users/{id}")
+    //고객 정보 삭제
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id){
         userRepository.deleteById(id);
     }
 
 
-    @PostMapping("/users")
+    // 고객 등록
+    @PostMapping("")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
         User savedUser = userRepository.save(user);
 
@@ -62,39 +60,9 @@ public class UserJpaController {
 
         return ResponseEntity.created(location).build();
     }
-
-//    //post
-//    @GetMapping("/users/{id}/posts")
-//    public List<Post> retrieveAllPostsByUser(@PathVariable int id){
-//        Optional<User> user = userRepository.findById(id);
-//
-//        if (!user.isPresent()){
-//            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-//        }
-//
-//        return user.get().getPosts();
-//    }
-//    //post
-//    @PostMapping("/users/{id}/posts")
-//    public ResponseEntity<Post> createPost(@PathVariable int id, @RequestBody Post post){
-//
-//        Optional<User> user = userRepository.findById(id);
-//
-//        if (!user.isPresent()){
-//            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-//        }
-//        post.setUser(user.get());
-//        Post savedPost = postRepository.save(post);
-//
-//        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-//                .path("/{id}")
-//                .buildAndExpand(savedPost.getId())
-//                .toUri();
-//
-//        return ResponseEntity.created(location).build();
-//    }
-//
-    @PutMapping("/users/{id}")
+    
+    //정보수정
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateStudent(@RequestBody User user, @PathVariable int id) {
         Optional<User> userOptional = userRepository.findById(id);
 
