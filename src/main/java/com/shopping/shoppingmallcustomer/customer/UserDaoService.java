@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+//개발 중지
 @Service
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
