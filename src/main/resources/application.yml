@@ -28,12 +28,12 @@ h2:
 spring:
   jpa:
     show-sql: true
-  application:
-    name : customer
+#  application:
+#    name : customer
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8090/eureka/
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8090/eureka/
