@@ -16,11 +16,6 @@ public class CustomerController {
     GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("data.xml");
     Customer user = ctx.getBean("resturant1", Customer.class);
 
-    @GetMapping("")
-    public String test(){
-        return "Hello";
-    }
-
     @GetMapping("/{id}")
     public JSONObject retrieveProduct(@PathVariable int id) throws ParseException {
         String output = "{" + "name:" + user.getNametoid(id) + ", phone_number:" + user.getPhone_numbertoid(id) + ", address:" + user.getAddresstoid(id) + "}";
