@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="resturant1" class="com.shopping.customer.customer.customer.Customer">
+        <property name="name">
+            <list>
+                <value>JEJ</value>
+                <value>KSJ</value>
+                <value>KDH</value>
+                <value>LJI</value>
+            </list>
+        </property>
+
+        <property name="id">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </list>
+        </property>
+
+        <property name="phone_number">
+            <list>
+                <value>010-1234-6878</value>
+                <value>010-2345-8742</value>
+                <value>010-3995-6186</value>
+                <value>010-4931-6491</value>
+            </list>
+        </property>
+
+        <property name="address">
+            <list>
+                <value>안산</value>
+                <value>서울</value>
+                <value>부산</value>
+                <value>인천</value>
+            </list>
+        </property>
+
+    </bean>
+</beans>
