@@ -1,6 +1,6 @@
 # Shopping-Customer
 
-MSA 구조에서의 RESTful API - **shopping customer** 고객  🚛  <br>
+MSA 구조에서의 RESTful API - **shopping customer** 고객  🚛    
 
 ## Setting 
 
